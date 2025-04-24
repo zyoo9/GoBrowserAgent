@@ -1,0 +1,19 @@
+# 百度搜索示例脚本
+# 这个脚本演示了如何自动化百度搜索
+
+# 首先导航到百度
+go https://www.baidu.com
+
+# 等待页面加载（以防网络延迟）
+wait 2s
+
+# 执行搜索
+search https://www.baidu.com query=Golang开发 input=#kw button=#su
+
+# 等待搜索结果加载
+wait 3s
+
+# 截图保存结果
+screenshot path=baidu_search_result.png
+
+# 结束 - 脚本完成 

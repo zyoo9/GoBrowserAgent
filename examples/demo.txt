@@ -1,0 +1,42 @@
+# GoBrowserAgent 功能演示
+# 这个脚本展示了多种自动化操作功能
+
+# 访问开源项目网站
+go https://github.com
+
+# 等待页面加载
+wait 2s
+
+# 截图
+screenshot path=github_homepage.png
+
+# 执行搜索
+search https://github.com query=golang input=.header-search-input button=.header-search-button
+
+# 等待搜索结果加载
+wait 3s
+
+# 执行JavaScript修改页面样式
+script "document.querySelector('.codesearch-results').style.backgroundColor = '#f0f8ff';"
+
+# 等待一下，观察效果
+wait 1s
+
+# 截图搜索结果
+screenshot path=github_search_result.png
+
+# 导航到一个新页面
+go https://example.com
+
+# 等待页面加载
+wait 2s
+
+# 执行多个JavaScript代码修改页面
+script "document.querySelector('h1').style.color = 'blue';"
+script "document.querySelector('p').innerHTML = '这是通过GoBrowserAgent自动修改的文本';"
+script "document.body.style.backgroundColor = '#fffaf0';"
+
+# 截图最终结果
+screenshot path=example_modified.png
+
+# 演示完成 
