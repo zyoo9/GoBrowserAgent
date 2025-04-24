@@ -126,8 +126,8 @@ screenshot path=baidu_search_result.png
     "provider": "openai",
     "api_key": "your-api-key-here",
     "api_url": "https://api.openai.com/v1",
-    "model_name": "gpt-4",
-    "max_tokens": 4096
+    "model_name": "gpt-3.5-turbo",
+    "max_tokens": 2048
   },
   "log": {
     "level": "info",
@@ -140,6 +140,56 @@ screenshot path=baidu_search_result.png
 ```
 
 复制`config.json.example`文件并根据需要进行修改。
+
+### 配置不同的LLM提供商
+
+GoBrowserAgent支持各种LLM提供商，只需在配置文件中相应调整即可：
+
+1. **OpenAI (GPT)**
+```json
+"llm": {
+  "provider": "openai",
+  "api_key": "sk-your-openai-key",
+  "api_url": "https://api.openai.com/v1",
+  "model_name": "gpt-3.5-turbo",
+  "max_tokens": 2048
+}
+```
+
+2. **通义千问 (Qwen)**
+```json
+"llm": {
+  "provider": "qwen",
+  "api_key": "your-qwen-key",
+  "api_url": "https://dashscope.aliyuncs.com/api/v1",
+  "model_name": "qwen-max",
+  "max_tokens": 2048
+}
+```
+
+3. **百度文心一言 (ERNIE Bot)**
+```json
+"llm": {
+  "provider": "ernie",
+  "api_key": "your-ernie-key",
+  "api_url": "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat",
+  "model_name": "ernie-bot-4",
+  "max_tokens": 2048
+}
+```
+
+4. **讯飞星火 (Spark)**
+```json
+"llm": {
+  "provider": "spark",
+  "api_key": "your-spark-key",
+  "api_url": "https://spark-api.xf-yun.com/v3.1",
+  "model_name": "spark-3.5",
+  "max_tokens": 2048
+}
+```
+
+您可以根据自己使用的模型来调整配置，系统会自动适配不同模型的响应格式。
 
 ## 使用示例
 
