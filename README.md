@@ -127,7 +127,8 @@ screenshot path=baidu_search_result.png
     "api_key": "your-api-key-here",
     "api_url": "https://api.openai.com/v1",
     "model_name": "gpt-3.5-turbo",
-    "max_tokens": 2048
+    "max_tokens": 2048,
+    "system_prompt": "你是一个专注于Go编程语言的技术助手，擅长解释代码并提供编程建议。"
   },
   "log": {
     "level": "info",
@@ -190,6 +191,30 @@ GoBrowserAgent支持各种LLM提供商，只需在配置文件中相应调整即
 ```
 
 您可以根据自己使用的模型来调整配置，系统会自动适配不同模型的响应格式。
+
+### 配置系统提示（System Prompt）
+
+系统提示是向LLM提供的初始指令，用于设置模型的行为和回答风格。在配置文件中，您可以通过`system_prompt`字段来自定义它：
+
+```json
+"llm": {
+  "provider": "openai",
+  "api_key": "your-api-key",
+  "api_url": "https://api.openai.com/v1",
+  "model_name": "gpt-3.5-turbo",
+  "max_tokens": 2048,
+  "system_prompt": "你是一个专注于Go编程语言的技术助手，擅长解释代码并提供编程建议。"
+}
+```
+
+系统提示的一些使用建议：
+
+1. **指定角色和专业领域**：例如"你是一个Go语言专家"或"你是一个网络安全顾问"
+2. **设定回应风格**：例如"以简洁明了的方式回答问题"或"提供详细且有教育意义的回答"
+3. **限制回应范围**：例如"仅回答与编程相关的问题"
+4. **针对特定任务定制**：例如"帮助用户理解浏览器自动化的原理和实践"
+
+合理设置系统提示可以让模型更好地满足您的需求，提供更加精准的回答。
 
 ## 使用示例
 
